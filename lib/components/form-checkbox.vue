@@ -40,7 +40,11 @@ export default {
     },
     computed: {
         isChecked() {
-            return this.checked.includes(this.value);
+            if (Array.isArray(this.checked)) {
+                return this.checked.includes(this.value);
+            } else {
+                return this.checked;
+            }
         }
     },
     methods: {
